@@ -1,0 +1,100 @@
+.smallcarditem {
+  width: 320px;
+  height: 380px;
+  background-color: #fff;
+  border: 2px solid #c9c9c9;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
+  display: flex;
+  margin: 20px;
+  font-family: Inter;
+}
+
+.smallcard-image {
+  width: 100%;
+  height: 140px;
+  display: block;
+  object-fit: cover;
+  background-color: aqua;
+  border-radius: 20px 20px 0 0;
+}
+
+.smallcard-text-contents {
+  padding: 8px 10px 8px 10px;
+}
+
+.title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 30px;
+  text-overflow: clip;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.contents {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.icons-div {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 22px;
+  margin-top: 10px;
+}
+
+.icons-div img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+}
+
+.icons-div span {
+  display: flex;
+  align-items: center;
+}
+
+.like-count {
+  padding-left: 8px;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  object-fit: cover;
+  background-color: #c9c9c9;
+  margin-bottom: 4px;
+}
+
+.user-picture {
+  padding: 0 8px 0 8px;
+}
+
+.smallcard-lower-contents {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 10px 0;
+}
+
+.username {
+  font-family: Inter;
+  font-size: 1rem;
+  padding-right: 8px;
+}
+
+.date {
+  color: #585858;
+}
