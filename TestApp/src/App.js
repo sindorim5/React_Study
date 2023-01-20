@@ -188,57 +188,59 @@ const DUMMY_POST = [
   },
 ];
 
-const DUMMY_TODO = {
-  id: "p1",
-  title: "리액트 강의 듣기",
-  startDate: "2023-01-06",
-  endDate: "2023-01-20",
-  todoList: [
-    {
-      todoId: "t1",
-      title: "리액트: Track 12",
-      description: "12강 너무 어렵다",
-      isDone: false,
-      dueDate: "2023-01-10",
-    },
-    {
-      todoId: "t2",
-      title: "모달폼 구성",
-      description: "모달폼을 구성해보자",
-      isDone: true,
-      dueDate: "2023-01-12",
-    },
-    {
-      todoId: "t3",
-      title: "화살표 함수",
-      description: "함수형 컴포넌트",
-      isDone: false,
-      dueDate: "2023-01-16 ",
-    },
-  ],
-};
-// {
-//   id: "p2",
-//   title: "알고리즘",
-//   startDate: "2023-01-10",
-//   endDate: "2023-01-22",
-//   todoList: [
-//     {
-//       todoId: "t4",
-//       title: "백준",
-//       description: "백준 하나 풀어야지",
-//       isDone: true,
-//       dueDate: "2023-01-15",
-//     },
-//     {
-//       todoId: "t5",
-//       title: "프로그래머스",
-//       description: "프로그래머스 하나 풀어야지",
-//       isDone: false,
-//       dueDate: "2023-01-17",
-//     },
-//   ],
-// },;
+const DUMMY_TODO = [
+  {
+    id: "p1",
+    title: "리액트 강의 듣기",
+    startDate: "2023-01-06",
+    endDate: "2023-01-20",
+    todoList: [
+      {
+        todoId: "t1",
+        title: "리액트: Track 12",
+        description: "12강 너무 어렵다",
+        isDone: false,
+        dueDate: "2023-01-10",
+      },
+      {
+        todoId: "t2",
+        title: "모달폼 구성",
+        description: "모달폼을 구성해보자",
+        isDone: true,
+        dueDate: "2023-01-12",
+      },
+      {
+        todoId: "t3",
+        title: "화살표 함수",
+        description: "함수형 컴포넌트",
+        isDone: false,
+        dueDate: "2023-01-16 ",
+      },
+    ],
+  },
+  {
+    id: "p2",
+    title: "알고리즘",
+    startDate: "2023-01-10",
+    endDate: "2023-01-22",
+    todoList: [
+      {
+        todoId: "t4",
+        title: "백준",
+        description: "백준 하나 풀어야지",
+        isDone: true,
+        dueDate: "2023-01-15",
+      },
+      {
+        todoId: "t5",
+        title: "프로그래머스",
+        description: "프로그래머스 하나 풀어야지",
+        isDone: false,
+        dueDate: "2023-01-17",
+      },
+    ],
+  },
+];
 
 function App() {
   const postList = DUMMY_POST.map((post) => (
@@ -254,25 +256,33 @@ function App() {
     />
   ));
 
-  const todoCardItemList = DUMMY_TODO.todoList.map((data) => (
-    <TodoCardItem
-      id={data.todoId}
-      key={data.todoId}
-      title={data.title}
-      description={data.description}
-      isDone={data.isDone}
-      dueDate={data.dueDate}
-    />
-  ));
+  const todoCardItemList = (todoList) => {
+    return todoList.map((todo) => (
+      <TodoCardItem
+        id={todo.todoId}
+        key={todo.todoId}
+        title={todo.title}
+        description={todo.description}
+        isDone={todo.isDone}
+        dueDate={todo.dueDate}
+      />
+    ));
+  };
+
+  const todoCardList = DUMMY_TODO.map((task) => {
+    return (
+      <TodoCard title={task.title} id={task.id} key={task.id}>
+        <ul>{todoCardItemList(task.todoList)}</ul>
+      </TodoCard>
+    );
+  });
 
   return (
     <Fragment>
       {/* <SmallCard>
         <ul>{postList}</ul>
       </SmallCard> */}
-      <TodoCard title={DUMMY_TODO.title} id={DUMMY_TODO.id} key={DUMMY_TODO.id}>
-        <ul>{todoCardItemList}</ul>
-      </TodoCard>
+      {todoCardList}
     </Fragment>
   );
 }

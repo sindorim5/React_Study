@@ -19,7 +19,7 @@ const TodoCardItem = (props) => {
         <span>
           <button onClick={onClickHandler}>{!isClicked ? ">" : "V"}</button>
           {props.title}
-          <input type="checkbox" defaultChecked={props.isDone} onChange={checkboxChangeHandler} />
+          <input type="checkbox" defaultChecked={isDone} onChange={checkboxChangeHandler} />
         </span>
         {isClicked && (
           <div>
@@ -32,11 +32,3 @@ const TodoCardItem = (props) => {
 };
 
 export default TodoCardItem;
-
-// {
-//   todoId: "t2",
-//   title: "모달폼 구성",
-//   description: "모달폼을 구성해보자",
-//   isDone: false,
-//   dueDate: "2023-01-12",
-// },
