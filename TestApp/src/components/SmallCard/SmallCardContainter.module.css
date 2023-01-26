@@ -1,0 +1,36 @@
+.smallcard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0px;
+}
+
+.smallcard ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .smallcard ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .smallcard ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px;
+  }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1500px) {
+  .smallcard ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0px;
+  }
+}
