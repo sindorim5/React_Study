@@ -2,7 +2,6 @@
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 100%;
   background-color: white;
   border: 3px solid #cccccc;
   box-shadow: 4px 2px 2px #c9c9c9;
@@ -11,34 +10,39 @@
   padding: 20px;
 }
 
-.userprofile img {
-  width: 150px;
-  height: 150px;
-  border: 2px solid #c9c9c9;
-  border-radius: 70%;
-  overflow: hidden;
-}
-
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
   font-weight: bold;
   font-size: xx-large;
 }
 
 .img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  margin-right: 80px;
-}
-
-.userData {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0px 0px;
-  font-weight: bold;
-  font-size: x-large;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #c9c9c9;
+  border-radius: 70%;
+  overflow: hidden;
+  object-fit: contain;
+  margin-right: auto;
+}
+
+.userdata {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.nickname {
+  padding: 40px 0px 0px 0px;
+}
+
+.description {
+  padding: 40px 0px 0px 0px;
 }

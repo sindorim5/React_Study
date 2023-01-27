@@ -4,7 +4,7 @@ import SmallCardContainer from "./components/SmallCard/SmallCardContainter";
 import SmallCardItem from "./components/SmallCard/SmallCardItem";
 import TodoCard from "./components/TodoCard/TodoCard";
 import TodoCardItem from "./components/TodoCard/TodoCardItem";
-import UserProfileChange from "./components/UserProfileChange/UserProfileChange";
+import UserProfileChangeForm from "./components/UserProfileChangeForm/UserProfileChangeForm";
 
 const DUMMY_POST = [
   {
@@ -303,7 +303,7 @@ function App() {
         <ul>{postList}</ul>
       </SmallCardContainer> */}
       {/* {todoCardList} */}
-      <UserProfileChange
+      <UserProfileChangeForm
         imageUrl={DUMMY_USERDATA.data.imageUrl}
         userName={DUMMY_USERDATA.data.userName}
         nickName={DUMMY_USERDATA.data.nickName}
