@@ -25,16 +25,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border: 2px solid #c9c9c9;
   border-radius: 70%;
-  overflow: hidden;
+  overflow-clip-margin: content-box;
+  overflow: clip;
   object-fit: contain;
   margin-right: auto;
 }
 
 .userdata {
+  width: 60%;
   text-align: center;
   margin: 0 auto;
 }
@@ -45,4 +47,82 @@
 
 .description {
   padding: 40px 0px 0px 0px;
+}
+
+.skill {
+  padding: 40px 0px 0px 0px;
+}
+
+.button {
+  text-align: end;
+  padding: 20px 0px 0px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .userprofile {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    box-shadow: 4px 2px 2px #c9c9c9;
+    border: 3px solid #cccccc;
+    border-radius: 20px;
+    margin: 10px auto;
+    padding: 20px;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: x-large;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .userprofile {
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    background-color: white;
+    border: 3px solid #cccccc;
+    box-shadow: 4px 2px 2px #c9c9c9;
+    border-radius: 20px;
+    margin: 10px auto;
+    padding: 20px;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1500px) {
+  .userprofile {
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    background-color: white;
+    border: 3px solid #cccccc;
+    box-shadow: 4px 2px 2px #c9c9c9;
+    border-radius: 20px;
+    margin: 10px auto;
+    padding: 20px;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: xx-large;
+  }
 }

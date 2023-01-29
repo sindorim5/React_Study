@@ -251,8 +251,9 @@ const DUMMY_USERDATA = {
     modifiedDate: "2023-01-23T03:44:44.417441",
     userId: 1,
     nickName: "나는리액트개발자",
-    department: null,
-    description: "자기소개입니다. 150자 제한이 있습니다.",
+    department: [{ name: "SSAFY", id: 0 }],
+    skill: [{ name: "React", id: 5 }],
+    description: "자기소개 테스트",
     userName: "ReactDeveloper01",
     email: "reactdeveloper01@gmail.com",
     imageUrl:
@@ -297,6 +298,11 @@ function App() {
     );
   });
 
+  const submitUserProfileHandler = (userData) => {
+    console.log("App.js");
+    console.log(userData);
+  };
+
   return (
     <Fragment>
       {/* <SmallCardContainer>
@@ -308,6 +314,9 @@ function App() {
         userName={DUMMY_USERDATA.data.userName}
         nickName={DUMMY_USERDATA.data.nickName}
         description={DUMMY_USERDATA.data.description}
+        department={DUMMY_USERDATA.data.department}
+        skill={DUMMY_USERDATA.data.skill}
+        onConfirm={submitUserProfileHandler}
       />
     </Fragment>
   );
