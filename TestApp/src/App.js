@@ -6,6 +6,8 @@ import TodoCard from "./components/TodoCard/TodoCard";
 import TodoCardItem from "./components/TodoCard/TodoCardItem";
 import UserProfileChangeForm from "./components/UserProfileChangeForm/UserProfileChangeForm";
 
+import LongCardItem from "./components/LongCard/LongCardItem";
+
 const DUMMY_POST = [
   {
     id: "p1",
@@ -311,7 +313,7 @@ function App() {
         <ul>{postList}</ul>
       </SmallCardContainer> */}
       {/* {todoCardList} */}
-      <UserProfileChangeForm
+      {/* <UserProfileChangeForm
         imageUrl={DUMMY_USERDATA.data.imageUrl}
         userName={DUMMY_USERDATA.data.userName}
         nickName={DUMMY_USERDATA.data.nickName}
@@ -319,7 +321,13 @@ function App() {
         department={DUMMY_USERDATA.data.department}
         skill={DUMMY_USERDATA.data.skill}
         onConfirm={submitUserProfileHandler}
-      />
+      /> */}
+      <ul>
+        <LongCardItem />
+        <li>
+          <h1>hi</h1>
+        </li>
+      </ul>
     </Fragment>
   );
 }
