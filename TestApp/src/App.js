@@ -6,6 +6,7 @@ import TodoCard from "./components/TodoCard/TodoCard";
 import TodoCardItem from "./components/TodoCard/TodoCardItem";
 import UserProfileChangeForm from "./components/UserProfileChangeForm/UserProfileChangeForm";
 
+import LongCardContainer from "./components/LongCard/LongCardContainer";
 import LongCardItem from "./components/LongCard/LongCardItem";
 
 const DUMMY_POST = [
@@ -309,9 +310,9 @@ function App() {
 
   return (
     <Fragment>
-      {/* <SmallCardContainer>
+      <SmallCardContainer>
         <ul>{postList}</ul>
-      </SmallCardContainer> */}
+      </SmallCardContainer>
       {/* {todoCardList} */}
       {/* <UserProfileChangeForm
         imageUrl={DUMMY_USERDATA.data.imageUrl}
@@ -322,12 +323,9 @@ function App() {
         skill={DUMMY_USERDATA.data.skill}
         onConfirm={submitUserProfileHandler}
       /> */}
-      <ul>
+      <LongCardContainer>
         <LongCardItem />
-        <li>
-          <h1>hi</h1>
-        </li>
-      </ul>
+      </LongCardContainer>
     </Fragment>
   );
 }

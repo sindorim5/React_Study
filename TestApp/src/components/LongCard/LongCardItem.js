@@ -1,18 +1,19 @@
 import classes from "./LongCardItem.module.css";
-import bookmarkIcon from "../../assets/bookmarkIcon.svg";
-import flatColorLikeIcon from "../../assets/flatColorLikeIcon.svg";
+import PhotoCameraIcon from "../../assets/photoCameraIcon.png";
 
-const LongCardItem = () => {
-  <li>
-    <div>
-      <div>
-        <h1>테스트</h1>
+const LongCardItem = (props) => {
+  return (
+    <li>
+      <div className={classes.longcarditem}>
+        <div>
+          <h1>테스트</h1>
+        </div>
+        <div className={classes[`card-image`]}>
+          <img src={PhotoCameraIcon} />
+        </div>
       </div>
-      <div>
-        <h1>이미지</h1>
-      </div>
-    </div>
-  </li>;
+    </li>
+  );
 };
 
 export default LongCardItem;

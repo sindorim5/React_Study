@@ -1,0 +1,8 @@
+.longcard {
+  width: 50%;
+  background-color: #fff;
+  outline: 2px solid #c9c9c9;
+  border-radius: 20px;
+  list-style: none;
+  margin: 0 auto 100px auto;
+}
