@@ -301,6 +301,8 @@ function App() {
   const submitUserProfileHandler = (userData) => {
     console.log("App.js");
     console.log(userData);
+
+    // 프사 업로드 axios
   };
 
   return (

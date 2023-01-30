@@ -12,7 +12,7 @@
 
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 60%;
   text-align: center;
@@ -21,18 +21,33 @@
   font-size: xx-large;
 }
 
-.img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  height: 120px;
+.iconbutton {
+  position: relative;
+}
+
+.iconbutton :hover {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.avatar-img {
   border: 2px solid #c9c9c9;
   border-radius: 70%;
   overflow-clip-margin: content-box;
   overflow: clip;
   object-fit: contain;
   margin-right: auto;
+}
+
+.camera {
+  position: absolute;
+  top: 32px;
+  left: 35px;
+  width: 50px;
+  height: 50px;
 }
 
 .userdata {
@@ -72,7 +87,7 @@
   }
   .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     margin: 0 auto;
@@ -95,7 +110,7 @@
   }
   .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     margin: 0 auto;
@@ -118,7 +133,7 @@
   }
   .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
     margin: 0 auto;

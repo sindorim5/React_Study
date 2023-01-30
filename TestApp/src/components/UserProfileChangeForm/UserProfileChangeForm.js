@@ -1,34 +1,98 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import classes from "./UserProfileChangeForm.module.css";
-import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
+import { Avatar, Button, TextField, FormControl, IconButton } from "@mui/material";
+import axios from "axios";
 import TagsInput from "./TagInput";
+import PhotoCameraIcon from "../../assets/photoCameraIcon.png";
 
-const isEmpty = (value) => value.trim() === "";
+const isUnderTwoChars = (value) => value.trim().length < 2;
 const isOverTenChars = (value) => value.trim().length > 10;
+const isDuplicated = (value) => {
+  const userInput = value.trim();
+  const url = "http://i8d210.p.ssafy.io:8081/user/nickname/" + userInput;
+  console.log(url);
+
+  const data = axios
+    .get(url)
+    .then((response) => response.json())
+    .catch((error) => {
+      console.log(error);
+      return { data: false };
+    });
+  const result = data.data;
+
+  return result;
+};
 
 const UserProfileChangeForm = (props) => {
-  console.log(props);
+  const [formIsValid, setFormIsValid] = useState(true);
+
+  // 프로필 사진
+  const [imageUrl, setImageUrl] = useState(props.imageUrl);
+  const [isHover, setIsHover] = useState(false);
+  // 프로필 사진 업로드
+  const fileInput = useRef(null);
+  const fileChangeHandler = (event) => {
+    if (!event.target.files) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        console.log(reader.result);
+        setImageUrl(reader.result);
+      }
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+
+  const avatarOnMouseToggleHandler = () => {
+    setIsHover((prevState) => !prevState);
+  };
+
+  // 닉네임
   const [nickName, setNickName] = useState(props.nickName);
-  const [nickNameIsEmpty, setNickNameIsEmpty] = useState(false);
+  const [nickNameIsUnderTwoChars, setNickNameIsUnderTwoChars] = useState(false);
   const [nickNameIsOverTenChars, setNickNameIsOverTenChars] = useState(false);
+  const [nickNameIsDuplicated, setNickNameIsDuplicated] = useState(false);
 
   const [description, setDescription] = useState(props.description);
   // description(자기소개) 글자 수
   const [count, setCount] = useState(props.description.length);
 
-  const [department, setDepartment] = useState(props.department);
-  const [skill, setSkill] = useState([props.skill]);
+  // 소속
+  const myDepartmentObj = [...props.department];
+  const myDepartmentList = myDepartmentObj.map((department) => department.name);
+  const [myDepartment, setMyDepartment] = useState(myDepartmentList);
+
+  // 관심 기술
+  const mySkillObj = [...props.skill];
+  const mySkillList = mySkillObj.map((skill) => skill.name);
+  const [mySkill, setMySkill] = useState(mySkillList);
 
   const nickNameInputRef = useRef();
   const descriptionInputRef = useRef();
 
   const nickNameOnChangeHandler = (event) => {
     setNickName(event.target.value);
-    setNickNameIsEmpty(isEmpty(event.target.value));
+    setNickNameIsUnderTwoChars(isUnderTwoChars(event.target.value));
     setNickNameIsOverTenChars(isOverTenChars(event.target.value));
   };
+
+  useEffect(() => {
+    const identifier = setTimeout(() => {
+      setNickNameIsDuplicated(isDuplicated(nickNameInputRef.current.value));
+
+      setFormIsValid(!nickNameIsUnderTwoChars && !nickNameIsOverTenChars && !nickNameIsDuplicated);
+      console.log("validation check");
+    }, 300);
+
+    return () => {
+      console.log("CLEAN UP");
+      clearTimeout(identifier);
+    };
+  }, [nickName, nickNameIsDuplicated, nickNameIsOverTenChars, nickNameIsUnderTwoChars]);
 
   const descriptionOnChangeHandler = (event) => {
     setDescription(event.target.value);
@@ -36,13 +100,15 @@ const UserProfileChangeForm = (props) => {
   };
 
   const departmentOnChangeHandler = (value) => {
-    console.log("department");
-    console.log(value);
-    setDepartment([...value]);
+    setMyDepartment([...value]);
   };
 
   const skillOnChangeHandler = (value) => {
-    setSkill([...value]);
+    setMySkill([...value]);
+  };
+
+  const onCancelClicked = () => {
+    console.log("cancel");
   };
 
   const confirmHandler = (event) => {
@@ -54,10 +120,11 @@ const UserProfileChangeForm = (props) => {
 
     console.log(enteredNickName);
     console.log(enteredDescription);
-    console.log(department);
-    console.log(skill);
+    console.log(myDepartment);
+    console.log(mySkill);
+    console.log(imageUrl);
 
-    const enteredNickNameIsValid = !nickNameIsEmpty || !nickNameIsOverTenChars;
+    const enteredNickNameIsValid = !nickNameIsUnderTwoChars || !nickNameIsOverTenChars;
 
     if (!enteredNickNameIsValid) {
       return;
@@ -66,8 +133,9 @@ const UserProfileChangeForm = (props) => {
     props.onConfirm({
       nickName: nickName,
       description: description,
-      department: department,
-      skill: skill,
+      department: myDepartment,
+      skill: mySkill,
+      imageUrl: imageUrl,
     });
   };
 
@@ -80,6 +148,8 @@ const UserProfileChangeForm = (props) => {
     { name: "React", id: 5 },
   ];
 
+  const skillTagNameList = skillTagList.map((tag) => tag.name);
+
   const departmentTagList = [
     { name: "SSAFY", id: 0 },
     { name: "삼성", id: 1 },
@@ -89,10 +159,33 @@ const UserProfileChangeForm = (props) => {
     { name: "애플", id: 5 },
   ];
 
+  const departmentTagNameList = departmentTagList.map((tag) => tag.name);
+
   return (
     <form className={classes.userprofile} onSubmit={confirmHandler}>
       <div className={classes.header}>
-        <img src={props.imageUrl} className={classes.img} />
+        <IconButton
+          onClick={() => {
+            fileInput.current.click();
+          }}
+          onMouseEnter={avatarOnMouseToggleHandler}
+          onMouseLeave={avatarOnMouseToggleHandler}
+          className={classes.iconbutton}
+        >
+          <Avatar
+            src={imageUrl || "../../assets/defualtUserProfilePic.svg"}
+            sx={{ width: 100, height: 100 }}
+            className={classes[`avatar-img`]}
+          />
+          {isHover && <img src={PhotoCameraIcon} className={classes.camera} />}
+          <input
+            style={{ display: "none" }}
+            type="file"
+            accept="image/jpg,image/png,image/jpeg"
+            ref={fileInput}
+            onChange={fileChangeHandler}
+          />
+        </IconButton>
         {props.userName}
       </div>
       <div className={classes.userdata}>
@@ -100,12 +193,10 @@ const UserProfileChangeForm = (props) => {
           <FormControl sx={{ width: "100%" }}>
             <TextField
               id="filled-basic"
-              error={nickNameIsEmpty || nickNameIsOverTenChars}
+              error={nickNameIsUnderTwoChars || nickNameIsOverTenChars}
               helperText={
-                nickNameIsEmpty
-                  ? "닉네임을 입력해주세요"
-                  : nickNameIsOverTenChars
-                  ? "닉네임은 10자 이하입니다"
+                nickNameIsUnderTwoChars || nickNameIsOverTenChars
+                  ? "닉네임은 2자 이상 10자 이하입니다."
                   : ""
               }
               label="Nickname"
@@ -135,25 +226,28 @@ const UserProfileChangeForm = (props) => {
         <div className={classes.skill}>
           <FormControl sx={{ width: "100%" }}>
             <TagsInput
-              tagList={departmentTagList}
+              tagList={departmentTagNameList}
               label={"소속"}
               onChange={departmentOnChangeHandler}
-              initialValue={department}
+              value={myDepartment}
             />
           </FormControl>
         </div>
         <div className={classes.skill}>
           <FormControl sx={{ width: "100%" }}>
             <TagsInput
-              tagList={skillTagList}
+              tagList={skillTagNameList}
               label={"관심 기술"}
               onChange={skillOnChangeHandler}
-              initialValue={skill}
+              value={mySkill}
             />
           </FormControl>
         </div>
         <div className={classes.button}>
-          <Button type="submit" variant="contained">
+          <Button type="button" variant="contained" sx={{ mr: 2 }} onClick={onCancelClicked}>
+            취소
+          </Button>
+          <Button type="submit" variant="contained" disabled={!formIsValid}>
             저장
           </Button>
         </div>

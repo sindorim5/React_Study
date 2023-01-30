@@ -7,7 +7,7 @@ const TagInput = (props) => {
     <Autocomplete
       multiple
       id="tags-filled"
-      options={props.tagList.map((option) => option.name)}
+      options={props.tagList}
       freeSolo
       renderTags={(tagValue, getTagProps) =>
         tagValue.map((option, index) => (
@@ -16,7 +16,7 @@ const TagInput = (props) => {
       }
       renderInput={(params) => <TextField {...params} variant="filled" label={props.label} />}
       onChange={(event, value) => props.onChange(value)}
-      defaultValue={props.initialValue.name}
+      value={props.value}
     />
   );
 };
