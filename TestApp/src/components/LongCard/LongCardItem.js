@@ -2,7 +2,7 @@ import { useState } from "react";
 import classes from "./LongCardItem.module.css";
 import PhotoCameraIcon from "../../assets/photoCameraIcon.png";
 import LongCardTagDataList from "./LongCardTagDataList";
-import { IconButton, createTheme, ThemeProvider } from "@mui/material";
+import { IconButton, createTheme, ThemeProvider, Avatar } from "@mui/material";
 import bookmarkIconFlat from "../../assets/BookmarkIconFlat.svg";
 import bookmarkIconFill from "../../assets/BookmarkIconFill.svg";
 import likeIconFlat from "../../assets/LikeIconFlat.svg";
@@ -20,9 +20,20 @@ const DUMMY_POST = {
     picture: "",
     username: "뉴진스",
   },
+  likeCount: 722,
 };
 
-const theme = createTheme({
+const bookmarkTheme = createTheme({
+  components: {
+    MuiIconButton: {
+      styleOverrides: {
+        root: { paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0, marginRight: 10 },
+      },
+    },
+  },
+});
+
+const likeTheme = createTheme({
   components: {
     MuiIconButton: {
       styleOverrides: {
@@ -55,17 +66,26 @@ const LongCardItem = (props) => {
           <div className={classes.title}>{DUMMY_POST.title}</div>
           <div className={classes.contents}>{DUMMY_POST.contents}</div>
           <div className={classes.tags}>
-            <LongCardTagDataList tagList={DUMMY_POST.tag} onClick={tagOnClickHandler} />
+            {/* <LongCardTagDataList tagList={DUMMY_POST.tag} onClick={tagOnClickHandler} /> */}
           </div>
-          <div className={classes.iconbutton}>
-            <ThemeProvider theme={theme}>
-              <IconButton onClick={bookmarkClickHandler}>
-                <img src={isBookmark ? bookmarkIconFill : bookmarkIconFlat} />
-              </IconButton>
-              <IconButton onClick={likeClickHandler}>
-                <img src={isLike ? likeIconFill : likeIconFlat} />
-              </IconButton>
-            </ThemeProvider>
+          <div className={classes[`icon-user`]}>
+            <div className={classes.iconbutton}>
+              <ThemeProvider theme={bookmarkTheme}>
+                <IconButton onClick={bookmarkClickHandler}>
+                  <img src={isBookmark ? bookmarkIconFill : bookmarkIconFlat} />
+                </IconButton>
+              </ThemeProvider>
+              <ThemeProvider theme={likeTheme}>
+                <IconButton onClick={likeClickHandler}>
+                  <img src={isLike ? likeIconFill : likeIconFlat} />
+                </IconButton>
+              </ThemeProvider>
+              <div className={classes.likecount}>{DUMMY_POST.likeCount}</div>
+            </div>
+            <div className={classes.user}>
+              <Avatar sx={{ width: 20, height: 20 }} />
+              {DUMMY_POST.user.username}
+            </div>
           </div>
         </div>
         <div className={classes[`card-image`]}>
