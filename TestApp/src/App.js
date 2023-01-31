@@ -280,6 +280,8 @@ function App() {
     />
   ));
 
+  console.log(postList);
+
   const todoCardItemList = (todoList) => {
     return todoList.map((todo) => (
       <TodoCardItem
@@ -310,9 +312,9 @@ function App() {
 
   return (
     <Fragment>
-      <SmallCardContainer>
+      {/* <SmallCardContainer>
         <ul>{postList}</ul>
-      </SmallCardContainer>
+      </SmallCardContainer> */}
       {/* {todoCardList} */}
       {/* <UserProfileChangeForm
         imageUrl={DUMMY_USERDATA.data.imageUrl}

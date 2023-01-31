@@ -1,6 +1,6 @@
 import classes from "./SmallCardItem.module.css";
-import bookmarkIcon from "../../assets/bookmarkIcon.svg";
-import flatColorLikeIcon from "../../assets/flatColorLikeIcon.svg";
+import bookmarkIconFlat from "../../assets/BookmarkIconFlat.svg";
+import likeIconFlat from "../../assets/LikeIconFlat.svg";
 import defaultUserPicture from "../../assets/defaultUserPicture.svg";
 
 const SmallCardItem = (props) => {
@@ -11,9 +11,9 @@ const SmallCardItem = (props) => {
         <div className={classes.title}>{props.title}</div>
         <p className={classes.contents}>{props.contents}</p>
         <div className={classes["icons-div"]}>
-          <img src={bookmarkIcon} />
+          <img src={bookmarkIconFlat} />
           <span>
-            <img src={flatColorLikeIcon} />
+            <img src={likeIconFlat} />
             <span className={classes["like-count"]}>12</span>
           </span>
         </div>
