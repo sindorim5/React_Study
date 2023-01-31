@@ -1,7 +1,8 @@
+import { useState } from "react";
 import classes from "./LongCardItem.module.css";
 import PhotoCameraIcon from "../../assets/photoCameraIcon.png";
 import LongCardTagDataList from "./LongCardTagDataList";
-import { IconButton } from "@mui/material";
+import { IconButton, createTheme, ThemeProvider } from "@mui/material";
 import bookmarkIconFlat from "../../assets/BookmarkIconFlat.svg";
 import bookmarkIconFill from "../../assets/BookmarkIconFill.svg";
 import likeIconFlat from "../../assets/LikeIconFlat.svg";
@@ -21,7 +22,28 @@ const DUMMY_POST = {
   },
 };
 
+const theme = createTheme({
+  components: {
+    MuiIconButton: {
+      styleOverrides: {
+        root: { paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0 },
+      },
+    },
+  },
+});
+
 const LongCardItem = (props) => {
+  const [isBookmark, setIsBookmark] = useState(false);
+  const [isLike, setIsLike] = useState(false);
+
+  const bookmarkClickHandler = () => {
+    setIsBookmark((prevState) => !prevState);
+  };
+
+  const likeClickHandler = () => {
+    setIsLike((prevState) => !prevState);
+  };
+
   const tagOnClickHandler = (event) => {
     console.log(event.currentTarget.innerText);
   };
@@ -36,12 +58,14 @@ const LongCardItem = (props) => {
             <LongCardTagDataList tagList={DUMMY_POST.tag} onClick={tagOnClickHandler} />
           </div>
           <div className={classes.iconbutton}>
-            <IconButton>
-              <img src={bookmarkIconFlat} />
-            </IconButton>
-            <IconButton>
-              <img src={likeIconFlat} />
-            </IconButton>
+            <ThemeProvider theme={theme}>
+              <IconButton onClick={bookmarkClickHandler}>
+                <img src={isBookmark ? bookmarkIconFill : bookmarkIconFlat} />
+              </IconButton>
+              <IconButton onClick={likeClickHandler}>
+                <img src={isLike ? likeIconFill : likeIconFlat} />
+              </IconButton>
+            </ThemeProvider>
           </div>
         </div>
         <div className={classes[`card-image`]}>

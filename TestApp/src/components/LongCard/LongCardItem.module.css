@@ -27,7 +27,7 @@
   overflow: hidden;
   font-size: 1rem;
   font-weight: 300;
-  padding-top: 4px;
+  padding-top: 8px;
 }
 
 .tags {
@@ -35,7 +35,7 @@
   justify-content: left;
   flex-wrap: wrap;
   height: 30px;
-  padding: 0;
+  padding: 0 0 8px 0;
 }
 
 .tags ul {
@@ -49,7 +49,7 @@
 }
 
 .iconbutton {
-  padding: 4px 4px 0 0;
+  padding: 100 0 0 0;
 }
 
 .card-image {

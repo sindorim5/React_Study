@@ -280,8 +280,6 @@ function App() {
     />
   ));
 
-  console.log(postList);
-
   const todoCardItemList = (todoList) => {
     return todoList.map((todo) => (
       <TodoCardItem

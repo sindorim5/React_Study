@@ -32,8 +32,6 @@ const LongCardTagDataList = (props) => {
     );
   }
 
-  console.log(TagDataItem);
-
   return (
     <Fragment>
       <ul>{TagDataItem}</ul>
