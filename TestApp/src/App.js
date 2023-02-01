@@ -17,18 +17,24 @@ const DUMMY_POST = [
     contents:
       "동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세",
     date: "2023-01-06",
+    tags: ["애국가", "대한민국", "안익태"],
+    likeCount: 1,
     user: {
-      picture: "",
+      picture:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
       username: "안익태",
     },
   },
   {
     id: "p2",
     title: "2긴 제목에 대해서 테스트를 하려고 한다 이것은 긴 제목이다",
-    thumbnail: "",
+    thumbnail:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     date: "2023-01-06",
+    tags: ["애국가", "대한민국", "안익태"],
+    likeCount: 2,
     user: {
       picture: "",
       username: "USERNAME_LENGTH",
@@ -41,6 +47,8 @@ const DUMMY_POST = [
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     date: "2023-01-07",
+    tags: ["애국가", "대한민국", "안익태"],
+    likeCount: 4,
     user: {
       picture: "",
       username: "USERNAME_LENGTH",
@@ -53,6 +61,8 @@ const DUMMY_POST = [
     contents:
       "국가는 지역간의 균형있는 발전을 위하여 지역경제를 육성할 의무를 진다. 국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요구한 때에는 대통령은 이를 해제하여야 한다. 광물 기타 중요한 지하자원·수산자원·수력과 경제상 이용할 수 있는 자연력은 법률이 정하는 바에 의하여 일정한 기간 그 채취·개발 또는 이용을 특허할 수 있다.",
     date: "2023-01-07",
+    tags: ["애국가", "대한민국", "안익태"],
+    likeCount: 8,
     user: {
       picture: "",
       username: "하나둘셋넷다섯여섯",
@@ -65,6 +75,8 @@ const DUMMY_POST = [
     contents:
       "Woo woo woo woo ooh Woo woo woo woo Stay in the middle Like you a little Don't want no riddle 말해줘 say it back Oh say it ditto 아침은 너무 멀어 So say it ditto 훌쩍 커버렸어 함께한 기억처럼 널 보는 내 마음은 어느새 여름 지나 가을 기다렸지 all this time Do you want somebody Like I want somebody 날 보고 웃었지만 Do you think about me now yeah All the time yeah All the time I got no time to lose",
     date: "2023-01-07",
+    tags: ["애국가", "대한민국", "안익태"],
+    likeCount: 16,
     user: {
       picture: "",
       username: "뉴진스",
@@ -77,6 +89,8 @@ const DUMMY_POST = [
     contents:
       "동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세",
     date: "2023-01-06",
+    tags: ["애국가", "대한민국", "안익태"],
+    likeCount: 32,
     user: {
       picture: "",
       username: "안익태",
@@ -89,6 +103,7 @@ const DUMMY_POST = [
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     date: "2023-01-06",
+    likeCount: 64,
     user: {
       picture: "",
       username: "USERNAME_LENGTH",
@@ -101,6 +116,8 @@ const DUMMY_POST = [
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     date: "2023-01-07",
+    tags: ["테스트", "긴제목", "naver"],
+    likeCount: 128,
     user: {
       picture: "",
       username: "USERNAME_LENGTH",
@@ -113,6 +130,8 @@ const DUMMY_POST = [
     contents:
       "국가는 지역간의 균형있는 발전을 위하여 지역경제를 육성할 의무를 진다. 국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요구한 때에는 대통령은 이를 해제하여야 한다. 광물 기타 중요한 지하자원·수산자원·수력과 경제상 이용할 수 있는 자연력은 법률이 정하는 바에 의하여 일정한 기간 그 채취·개발 또는 이용을 특허할 수 있다.",
     date: "2023-01-07",
+    likeCount: 190,
+    tags: ["google", "백준", "programmers"],
     user: {
       picture: "",
       username: "하나둘셋넷다섯여섯",
@@ -125,6 +144,8 @@ const DUMMY_POST = [
     contents:
       "Woo woo woo woo ooh Woo woo woo woo Stay in the middle Like you a little Don't want no riddle 말해줘 say it back Oh say it ditto 아침은 너무 멀어 So say it ditto 훌쩍 커버렸어 함께한 기억처럼 널 보는 내 마음은 어느새 여름 지나 가을 기다렸지 all this time Do you want somebody Like I want somebody 날 보고 웃었지만 Do you think about me now yeah All the time yeah All the time I got no time to lose",
     date: "2023-01-07",
+    tags: ["google", "백준", "programmers"],
+    likeCount: 199,
     user: {
       picture: "",
       username: "뉴진스",
@@ -137,6 +158,8 @@ const DUMMY_POST = [
     contents:
       "동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세",
     date: "2023-01-06",
+    tags: ["google", "백준", "programmers"],
+    likeCount: 100000,
     user: {
       picture: "",
       username: "안익태",
@@ -149,6 +172,8 @@ const DUMMY_POST = [
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     date: "2023-01-06",
+    tags: ["애국가", "대한민국", "안익태"],
+    likeCount: 100020,
     user: {
       picture: "",
       username: "USERNAME_LENGTH",
@@ -161,6 +186,8 @@ const DUMMY_POST = [
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     date: "2023-01-07",
+    tags: ["애국가", "대한민국", "안익태"],
+    likeCount: 102020,
     user: {
       picture: "",
       username: "USERNAME_LENGTH",
@@ -173,6 +200,8 @@ const DUMMY_POST = [
     contents:
       "국가는 지역간의 균형있는 발전을 위하여 지역경제를 육성할 의무를 진다. 국회가 재적의원 과반수의 찬성으로 계엄의 해제를 요구한 때에는 대통령은 이를 해제하여야 한다. 광물 기타 중요한 지하자원·수산자원·수력과 경제상 이용할 수 있는 자연력은 법률이 정하는 바에 의하여 일정한 기간 그 채취·개발 또는 이용을 특허할 수 있다.",
     date: "2023-01-07",
+    tags: ["애국가", "대한민국", "안익태"],
+    likeCount: 102120,
     user: {
       picture: "",
       username: "하나둘셋넷다섯여섯",
@@ -185,6 +214,8 @@ const DUMMY_POST = [
     contents:
       "Woo woo woo woo ooh Woo woo woo woo Stay in the middle Like you a little Don't want no riddle 말해줘 say it back Oh say it ditto 아침은 너무 멀어 So say it ditto 훌쩍 커버렸어 함께한 기억처럼 널 보는 내 마음은 어느새 여름 지나 가을 기다렸지 all this time Do you want somebody Like I want somebody 날 보고 웃었지만 Do you think about me now yeah All the time yeah All the time I got no time to lose",
     date: "2023-01-07",
+    likeCount: 112120,
+    tags: ["애국가", "대한민국", "안익태"],
     user: {
       picture: "",
       username: "뉴진스",
@@ -280,6 +311,21 @@ function App() {
     />
   ));
 
+  const onePost = (post) => {
+    return (
+      <SmallCardItem
+        id={post.id}
+        key={post.id}
+        thumbnail={post.thumbnail}
+        title={post.title}
+        contents={post.contents}
+        userpicture={post.user.picture}
+        username={post.user.username}
+        date={post.date}
+      />
+    );
+  };
+
   const todoCardItemList = (todoList) => {
     return todoList.map((todo) => (
       <TodoCardItem
@@ -301,6 +347,23 @@ function App() {
     );
   });
 
+  const longCardList = DUMMY_POST.map((post) => {
+    return (
+      <LongCardItem
+        id={post.id}
+        key={post.id}
+        thumbnail={post.thumbnail}
+        title={post.title}
+        contents={post.contents}
+        tags={post.tags}
+        likeCount={post.likeCount}
+        userpicture={post.user.picture}
+        username={post.user.username}
+        date={post.date}
+      />
+    );
+  });
+
   const submitUserProfileHandler = (userData) => {
     console.log("App.js");
     console.log(userData);
@@ -310,9 +373,9 @@ function App() {
 
   return (
     <Fragment>
-      {/* <SmallCardContainer>
+      <SmallCardContainer>
         <ul>{postList}</ul>
-      </SmallCardContainer> */}
+      </SmallCardContainer>
       {/* {todoCardList} */}
       {/* <UserProfileChangeForm
         imageUrl={DUMMY_USERDATA.data.imageUrl}
@@ -323,9 +386,9 @@ function App() {
         skill={DUMMY_USERDATA.data.skill}
         onConfirm={submitUserProfileHandler}
       /> */}
-      <LongCardContainer>
-        <LongCardItem />
-      </LongCardContainer>
+      {/* <LongCardContainer>
+        <ul>{longCardList}</ul>
+      </LongCardContainer> */}
     </Fragment>
   );
 }

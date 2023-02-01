@@ -1,8 +1,37 @@
 .longcard {
   width: 50%;
   background-color: #fff;
-  outline: 2px solid #c9c9c9;
-  border-radius: 20px;
-  list-style: none;
   margin: 100px auto 100px auto;
+}
+
+.longcard ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .longcard {
+    width: 80%;
+    background-color: #fff;
+    list-style: none;
+    margin: 100px auto 100px auto;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 972px) {
+  .longcard {
+    width: 70%;
+    background-color: #fff;
+    list-style: none;
+    margin: 100px auto 100px auto;
+  }
+}
+
+@media screen and (min-width: 973px) and (max-width: 1200px) {
+  .longcard {
+    width: 60%;
+    background-color: #fff;
+    list-style: none;
+    margin: 100px auto 100px auto;
+  }
 }

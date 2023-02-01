@@ -9,12 +9,18 @@ const LongCardTagList = styled("li")(({ theme }) => ({
 const LongCardTagDataList = (props) => {
   const TagDataItem = [];
 
-  const maxIndex = props.tagList.length < 5 ? props.tagList.length : 5;
+  const maxIndex = (list) => {
+    if (list) {
+      return list.length < 5 ? list.length : 5;
+    } else {
+      return 0;
+    }
+  };
 
   const bgColorList = ["#f9f5fc", "#f5f5fc", "#fcf5eb", "#f5fceb", "#fcfceb"];
   const colorList = ["#381E72", "#013ab1", "#622100", "#1c663c", "#754502"];
 
-  for (var i = 0; i < maxIndex; i++) {
+  for (var i = 0; i < maxIndex(props.tagList); i++) {
     TagDataItem.push(
       <LongCardTagList key={i}>
         <Chip

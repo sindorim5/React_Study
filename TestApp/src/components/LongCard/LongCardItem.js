@@ -1,43 +1,19 @@
 import { useState } from "react";
 import classes from "./LongCardItem.module.css";
-import PhotoCameraIcon from "../../assets/photoCameraIcon.png";
 import LongCardTagDataList from "./LongCardTagDataList";
-import { IconButton, createTheme, ThemeProvider, Avatar } from "@mui/material";
+import { IconButton, createTheme, ThemeProvider, Avatar, colors } from "@mui/material";
+import PhotoCameraIcon from "../../assets/photoCameraIcon.png";
 import bookmarkIconFlat from "../../assets/BookmarkIconFlat.svg";
 import bookmarkIconFill from "../../assets/BookmarkIconFill.svg";
 import likeIconFlat from "../../assets/LikeIconFlat.svg";
 import likeIconFill from "../../assets/LikeIconFill.svg";
+import defaultUserPicture from "../../assets/defaultUserPicture.svg";
 
-const DUMMY_POST = {
-  id: "p1",
-  title: "Ditto",
-  thumbnail: "",
-  contents:
-    "Woo woo woo woo ooh Woo woo woo woo Stay in the middle Like you a little Don't want no riddle 말해줘 say it back Oh say it ditto 아침은 너무 멀어 So say it ditto 훌쩍 커버렸어 함께한 기억처럼 널 보는 내 마음은 어느새 여름 지나 가을 기다렸지 all this time Do you want somebody Like I want somebody 날 보고 웃었지만 Do you think about me now yeah All the time yeah All the time I got no time to lose",
-  date: "2023-01-07",
-  tag: ["ador", "hybe", "python", "google", "삼성", "애플", "페이스북", "갤럭시", "아이패드"],
-  user: {
-    picture: "",
-    username: "뉴진스",
-  },
-  likeCount: 722,
-};
-
-const bookmarkTheme = createTheme({
+const avatarTheme = createTheme({
   components: {
-    MuiIconButton: {
+    MuiAvatar: {
       styleOverrides: {
-        root: { paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0, marginRight: 10 },
-      },
-    },
-  },
-});
-
-const likeTheme = createTheme({
-  components: {
-    MuiIconButton: {
-      styleOverrides: {
-        root: { paddingTop: 0, paddingRight: 0, paddingBottom: 0, paddingLeft: 0 },
+        root: { marginRight: 4 },
       },
     },
   },
@@ -46,6 +22,22 @@ const likeTheme = createTheme({
 const LongCardItem = (props) => {
   const [isBookmark, setIsBookmark] = useState(false);
   const [isLike, setIsLike] = useState(false);
+
+  const thumbnail = () => {
+    if (props.thumbnail === "") {
+      return (
+        <div className={classes[`card-image`]} style={{ backgroundColor: "#c9c9c9" }}>
+          <img src={PhotoCameraIcon} />
+        </div>
+      );
+    } else {
+      return (
+        <div className={classes[`card-image`]} style={{ backgroundColor: "#fff" }}>
+          <img src={props.thumbnail} />
+        </div>
+      );
+    }
+  };
 
   const bookmarkClickHandler = () => {
     setIsBookmark((prevState) => !prevState);
@@ -63,34 +55,56 @@ const LongCardItem = (props) => {
     <li>
       <div className={classes.longcarditem}>
         <div className={classes[`card-text`]}>
-          <div className={classes.title}>{DUMMY_POST.title}</div>
-          <div className={classes.contents}>{DUMMY_POST.contents}</div>
+          <div className={classes.title}>{props.title}</div>
+          <div className={classes.contents}>{props.contents}</div>
           <div className={classes.tags}>
-            {/* <LongCardTagDataList tagList={DUMMY_POST.tag} onClick={tagOnClickHandler} /> */}
+            <LongCardTagDataList tagList={props.tags} onClick={tagOnClickHandler} />
           </div>
           <div className={classes[`icon-user`]}>
             <div className={classes.iconbutton}>
-              <ThemeProvider theme={bookmarkTheme}>
-                <IconButton onClick={bookmarkClickHandler}>
-                  <img src={isBookmark ? bookmarkIconFill : bookmarkIconFlat} />
-                </IconButton>
-              </ThemeProvider>
-              <ThemeProvider theme={likeTheme}>
-                <IconButton onClick={likeClickHandler}>
-                  <img src={isLike ? likeIconFill : likeIconFlat} />
-                </IconButton>
-              </ThemeProvider>
-              <div className={classes.likecount}>{DUMMY_POST.likeCount}</div>
+              <IconButton
+                onClick={bookmarkClickHandler}
+                style={{
+                  paddingTop: 0,
+                  paddingRight: 0,
+                  paddingBottom: 0,
+                  paddingLeft: 0,
+                  marginRight: 10,
+                }}
+              >
+                <img src={isBookmark ? bookmarkIconFill : bookmarkIconFlat} />
+              </IconButton>
+              <IconButton
+                onClick={likeClickHandler}
+                style={{
+                  paddingTop: 0,
+                  paddingRight: 0,
+                  paddingBottom: 0,
+                  paddingLeft: 0,
+                }}
+              >
+                <img src={isLike ? likeIconFill : likeIconFlat} />
+              </IconButton>
+              <div className={classes.likecount}>{props.likeCount}</div>
             </div>
             <div className={classes.user}>
-              <Avatar sx={{ width: 20, height: 20 }} />
-              {DUMMY_POST.user.username}
+              <ThemeProvider theme={avatarTheme}>
+                <Avatar
+                  src={props.userpicture === "" ? defaultUserPicture : props.userpicture}
+                  sx={{
+                    width: 24,
+                    height: 24,
+                    border: "1px solid lightgray",
+                    objectFit: "scale-down",
+                  }}
+                />
+              </ThemeProvider>
+              <div className={classes.username}>{props.username}</div>
+              <div className={classes.date}>{props.date}</div>
             </div>
           </div>
         </div>
-        <div className={classes[`card-image`]}>
-          <img src={PhotoCameraIcon} />
-        </div>
+        {thumbnail()}
       </div>
     </li>
   );

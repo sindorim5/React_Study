@@ -2,15 +2,22 @@
   display: flex;
   justify-content: space-between;
   height: 200px;
+  outline: 2px solid #c9c9c9;
+  border-radius: 20px;
+  list-style: none;
+  margin: 18px;
 }
 
 .card-text {
   flex: 1;
-  padding: 18px 20px 18px 20px;
+  padding: 16px 20px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 28px;
   text-overflow: clip;
@@ -18,6 +25,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+  margin-bottom: 6px;
 }
 
 .contents {
@@ -25,9 +33,10 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+  text-overflow: clip;
   font-size: 1rem;
   font-weight: 300;
-  padding-top: 8px;
+  margin-bottom: 6px;
 }
 
 .tags {
@@ -35,7 +44,7 @@
   justify-content: left;
   flex-wrap: wrap;
   height: 30px;
-  padding: 0 0 8px 0;
+  margin-bottom: 10px;
 }
 
 .tags ul {
@@ -51,6 +60,7 @@
 .icon-user {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .iconbutton {
@@ -65,19 +75,191 @@
 .user {
   display: flex;
   align-items: center;
+  font-family: Inter;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.username {
+  margin-right: 4px;
+  text-overflow: clip;
+}
+
+.date {
+  color: #585858;
 }
 
 .card-image {
   display: flex;
   align-items: center;
   width: 200px;
-  background-color: #c9c9c9;
+  outline: 2px solid #c9c9c9;
   border-radius: 0 20px 20px 0;
 }
 
 .card-image img {
   width: 70%;
   height: 70%;
-  object-fit: cover;
+  object-fit: contain;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .longcarditem {
+    display: flex;
+    justify-content: space-between;
+    height: 180px;
+  }
+  .card-text {
+    flex: 1;
+    padding: 20px 14px 20px 14px;
+  }
+
+  .card-image {
+    display: flex;
+    align-items: center;
+    width: 180px;
+    background-color: #c9c9c9;
+    border-radius: 0 20px 20px 0;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 20px;
+    text-overflow: clip;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+
+  .contents {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .username {
+    margin-right: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .tags {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    height: 30px;
+    margin-bottom: 10px;
+  }
+
+  .tags ul {
+    padding: 0 0 0 0;
+    margin: 0px 0 0 0;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 972px) {
+  .longcarditem {
+    display: flex;
+    justify-content: space-between;
+    height: 180px;
+  }
+  .card-text {
+    flex: 1;
+    padding: 20px 14px 20px 14px;
+  }
+
+  .card-image {
+    display: flex;
+    align-items: center;
+    width: 180px;
+    background-color: #c9c9c9;
+    border-radius: 0 20px 20px 0;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 20px;
+    text-overflow: clip;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+
+  .contents {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: clip;
+    overflow: hidden;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  .tags {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    height: 30px;
+    margin-bottom: 10px;
+  }
+
+  .tags ul {
+    padding: 0 0 0 0;
+    margin: 0px 0 0 0;
+  }
+}
+
+@media screen and (min-width: 973px) and (max-width: 1200px) {
+  .longcarditem {
+    display: flex;
+    justify-content: space-between;
+    height: 180px;
+  }
+  .card-text {
+    flex: 1;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .card-image {
+    display: flex;
+    align-items: center;
+    width: 180px;
+    background-color: #c9c9c9;
+    border-radius: 0 20px 20px 0;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 24px;
+    text-overflow: clip;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+
+  .contents {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 6px;
+  }
 }
