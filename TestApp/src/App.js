@@ -378,7 +378,7 @@ function App() {
       </SmallCardContainer>
       {/* {todoCardList} */}
       {/* <UserProfileChangeForm
-        imageUrl={DUMMY_USERDATA.data.imageUrl}
+        imageUrl={null}
         userName={DUMMY_USERDATA.data.userName}
         nickName={DUMMY_USERDATA.data.nickName}
         description={DUMMY_USERDATA.data.description}

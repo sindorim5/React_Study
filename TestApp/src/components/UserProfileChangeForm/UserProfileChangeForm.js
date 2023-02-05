@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import classes from "./UserProfileChangeForm.module.css";
 import { Avatar, Button, TextField, FormControl, IconButton } from "@mui/material";
 import axios from "axios";
+import SingleTagInput from "./SingleTagInput";
 import TagsInput from "./TagInput";
 import PhotoCameraIcon from "../../assets/photoCameraIcon.png";
 
@@ -25,6 +26,7 @@ const isDuplicated = (value) => {
 };
 
 const UserProfileChangeForm = (props) => {
+  console.log(props);
   const [formIsValid, setFormIsValid] = useState(true);
 
   // 프로필 사진
@@ -173,7 +175,7 @@ const UserProfileChangeForm = (props) => {
           className={classes.iconbutton}
         >
           <Avatar
-            src={imageUrl || "../../assets/defualtUserProfilePic.svg"}
+            src={imageUrl}
             sx={{ width: 100, height: 100 }}
             className={classes[`avatar-img`]}
           />
@@ -225,11 +227,11 @@ const UserProfileChangeForm = (props) => {
         </div>
         <div className={classes.skill}>
           <FormControl sx={{ width: "100%" }}>
-            <TagsInput
+            <SingleTagInput
               tagList={departmentTagNameList}
               label={"소속"}
               onChange={departmentOnChangeHandler}
-              value={myDepartment}
+              defaultValue={myDepartment}
             />
           </FormControl>
         </div>
